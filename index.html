@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folder SHE - Regras de Ouro</title>
+  <style>
+    :root {
+      --blue:#0f4c81;
+      --green:#1f7a4d;
+      --gold:#c58b00;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:#d1d5db;
+      --bg:#f3f6fb;
+      --card:#ffffff;
+      --shadow:0 14px 40px rgba(15,76,129,.10);
+    }
+    * { box-sizing:border-box; }
+    html, body { margin:0; padding:0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(15,76,129,.10), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
+    .hero-wrap {
+      background: linear-gradient(135deg, #0f4c81 0%, #0b3760 100%);
+      color: white;
+      padding: 48px 20px;
+    }
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+    .hero {
+      max-width: 1160px;
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      align-items:center;
+    }
+    .logo {
+      width: 220px;
+      height: 110px;
+      background: white;
+      border-radius: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .logo img { width:100%; height:100%; object-fit:contain; display:block; }
+    h1 { margin:0 0 10px; font-size: clamp(34px, 4vw, 54px); line-height:1.05; }
+    h2 { margin:0; font-size: clamp(18px, 2vw, 24px); font-weight:700; color:#d9ecff; }
+    .hero p { margin:16px 0 0; max-width: 760px; font-size: 17px; line-height:1.6; color:#eff6ff; }
+    .content { margin-top: 28px; display:grid; gap: 22px; }
+    .top-grid { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; align-items:stretch; }
+    .intro-card { background: linear-gradient(135deg, #ffffff 0%, #f7fbff 100%); border: 1px solid rgba(15,76,129,.10); border-radius: 22px; padding: 24px; box-shadow: var(--shadow); display:flex; flex-direction:column; justify-content:center; }
+    .intro-card h3 { margin:0 0 10px; color: var(--blue); font-size: 26px; }
+    .intro-card p { margin:0; color: var(--muted); line-height:1.6; }
+    .spotlight { background: linear-gradient(135deg, #ffffff 0%, #f7fbff 100%); border: 1px solid rgba(15,76,129,.10); border-radius: 22px; padding: 22px; box-shadow: var(--shadow); display:grid; grid-template-columns: 240px 1fr; gap: 22px; align-items:center; }
+    .spotlight img { width:100%; max-width:240px; height:auto; display:block; margin:0 auto; }
+    .spotlight h3 { margin:0 0 8px; color:var(--blue); font-size:26px; }
+    .spotlight p { margin:0; color:var(--muted); line-height:1.6; }
+    .cards { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(15,76,129,.10);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      min-height: 100%;
+    }
+    .card h3 {
+      margin:0 0 14px;
+      color: var(--blue);
+      font-size: 24px;
+    }
+    .card p.section-copy { margin:0 0 16px; color: var(--muted); line-height:1.6; }
+    ol { margin:0; padding-left: 20px; }
+    li { margin: 10px 0; line-height:1.55; }
+    .ack {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border: 1px solid rgba(31,122,77,.20);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+    .section-title { margin:0 0 8px; font-size: 28px; color: var(--blue); }
+    .form-grid { display:grid; grid-template-columns: 1fr 220px; gap: 14px; margin-top: 16px; }
+    label { display:block; font-weight:700; margin-bottom:8px; color:var(--text); }
+    input[type="text"], input[type="date"] {
+      width:100%;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:16px;
+      background:#fff;
+    }
+    .check { display:flex; align-items:flex-start; gap:10px; margin: 16px 0; }
+    .check input { margin-top:4px; transform: scale(1.1); }
+    button {
+      background: linear-gradient(135deg, var(--green), #155c39);
+      color:white;
+      border:0;
+      border-radius: 14px;
+      padding: 14px 20px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow: 0 10px 24px rgba(31,122,77,.25);
+    }
+    button:hover { filter: brightness(1.03); }
+    .note { color:var(--muted); font-size:13px; margin-top:12px; }
+    .status { margin-top: 14px; padding: 14px 16px; border-radius: 12px; background:#eef8f2; color:#14532d; display:none; }
+    .footer {
+      margin-top: 22px;
+      color: #eaf3ff;
+      text-align:center;
+      font-size: 13px;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; justify-items:center; text-align:center; }
+      .top-grid { grid-template-columns: 1fr; }
+      .spotlight { grid-template-columns: 1fr; text-align:center; justify-items:center; }
+      .cards { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .hero p { margin-left:auto; margin-right:auto; }
+    }
+    @media print {
+      body { background:white; }
+      .hero-wrap { background:white; color:black; padding:0; }
+      .footer { display:none; }
+      .card, .ack { break-inside: avoid; box-shadow:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-wrap">
+    <div class="hero">
+      <div class="logo"><img src="logo-ldc.png" alt="Logo LDC" /></div>
+      <div>
+        <h1>Regras que protegem.</h1>
+        <h2>Práticas que garantem.</h2>
+        <p>Conheça, pratique e confirme a leitura das regras que fazem parte do nosso jeito de trabalhar, fortalecendo a segurança, a qualidade e a excelência em cada processo.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="content">
+      <div class="cards">
+        <article class="card">
+          <h3>10 Regras de Ouro SHE</h3>
+          <div style="display:flex; gap:18px; align-items:center; margin-bottom:16px;">
+            <img src="bonequinho.png" alt="Bonequinho de segurança" style="width:120px; max-width:35%; height:auto; flex:0 0 auto;" />
+            <p class="section-copy" style="margin:0;">Compromissos essenciais para trabalhar com segurança, disciplina e responsabilidade.</p>
+          </div>
+          <ol>
+            <li><strong>Cumprimentos de Procedimentos (Capacitação, aptidão e autorização)</strong><br />Não realize ou não permita qualquer atividade em descumprimento com os procedimentos vigentes. Tenha sempre a devida habilitação, capacitação ou autorização e dentro da respectiva validade.</li>
+            <li><strong>Autorização de Trabalho de Risco (ATR)</strong><br />Não realize ou não permita qualquer atividade de alto risco sem os procedimento ou as devidas autorizações e sem ter avaliado e controlado os riscos da tarefa.</li>
+            <li><strong>Equipamento de Proteção</strong><br />Não realize e não permita a realização de atividade sem a utilização dos EPIs e EPCs obrigatórios e em bom estado de conservação e funcionamento.</li>
+            <li><strong>Bloqueio de Energias (LOTO)</strong><br />Somente execute trabalhos em equipamentos ou instalações após certificar-se de que todas as fontes de energia tenham sido isoladas de forma segura, com aplicação do LOTO.</li>
+            <li><strong>Proteção de Máquinas</strong><br />Não se aproxime e nem permita a aproximação e operação de máquinas e equipamentos sem que as respectivas proteções de suas partes móveis estejam instaladas adequadamente e em perfeito estado de funcionamento.</li>
+            <li><strong>Dispositivo Crítico de Segurança (CSD)</strong><br />Nunca desabilite e não permita que desabilitem um dispositivo crítico de segurança (CSD Bypass) sem autoriação formal.</li>
+            <li><strong>Ferramentas e Equipamentos Manuais</strong><br />Nunca utilize ou permita que utilizem ferramentas danificadas e/ou improvisadas para executar um trabalho.</li>
+            <li><strong>Içamento de Cargas</strong><br />Nunca transite ou permita que qualquer pessoa transite ou permaneça na zona de risco de movimentação da carga ou toque na carga içada.</li>
+            <li><strong>Atmosfera Explosiva</strong><br />Nunca entre sem a permissão ou permita a entrada de pessoas não autorizadas em área com atmosfera explosiva, atente a sinalização. Não permita a realização de trabalhos nestas areas sem a devida autorização.</li>
+            <li><strong>Comunicação de Acidentes</strong><br />Todo acidente (pessoas, dano a propriedade e meio ambiente) deve ser imediatamente reportado à liderança e/ou equipe de SHE.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <h3>Boas Práticas de Fabricação</h3>
+          <div style="display:flex; gap:18px; align-items:center; margin-bottom:16px; flex-wrap:wrap;">
+            <img src="bpf.png" alt="Boas Práticas de Fabricação" style="width:180px; max-width:100%; height:auto; flex:0 0 auto; border-radius:14px;" />
+            <p class="section-copy" style="margin:0;">Compromissos essenciais para garantir higiene, qualidade e segurança dos alimentos.</p>
+          </div>
+          <ol>
+            <li><strong>Higiene Pessoal</strong><br />Mantenha hábitos de higiene adequados durante toda a permanência na unidade.</li>
+            <li><strong>Higienização das Mãos</strong><br />Lave e higienize as mãos ao entrar nas áreas produtivas e sempre que necessário.</li>
+            <li><strong>Uso Correto de Uniformes e EPIs</strong><br />Utilize corretamente os uniformes, EPIs e demais itens obrigatórios para a atividade.</li>
+            <li><strong>Proibição de Adornos e Objetos Pessoais</strong><br />Não utilize anéis, relógios, brincos, correntes ou qualquer objeto que possa contaminar o produto.</li>
+            <li><strong>Controle de Saúde</strong><br />Não acesse áreas produtivas quando apresentar doenças, ferimentos ou condições que possam comprometer a segurança dos alimentos.</li>
+            <li><strong>Limpeza e Organização</strong><br />Mantenha as áreas, equipamentos e materiais limpos, organizados e em boas condições de uso.</li>
+            <li><strong>Prevenção de Contaminação</strong><br />Evite qualquer prática que possa causar contaminação física, química ou biológica dos produtos.</li>
+            <li><strong>Controle de Corpos Estranhos</strong><br />Não permita a presença de materiais que possam contaminar o produto, como plástico, metal, vidro ou madeira.</li>
+            <li><strong>Controle de Pragas e Resíduos</strong><br />Descarte resíduos corretamente e mantenha as áreas livres de condições que favoreçam a presença de pragas.</li>
+            <li><strong>Comunicação de Desvios</strong><br />Comunique imediatamente qualquer situação, incidente ou não conformidade que possa afetar a qualidade e a segurança dos alimentos.</li>
+          </ol>
+        </article>
+      </div>
+
+            <section class="ack">
+        <h3 class="section-title">Confirmação de leitura</h3>
+        <p>Para registrar a confirmação, preencha o formulário oficial abaixo.</p>
+        <a class="save-btn" id="open-form" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=C02mQPnyNEqxswmSrA5eTjHF50uXyohDkcbJOWdWUohUODZEQUtYR0o5TzA1MzVDN1FOOUVRWUFGUy4u">
+          Preencher formulário de confirmação
+        </a>
+      </section>
+    </section>
+
+    <div class="footer">Pronto para publicar no GitHub Pages.</div>
+  </main>
+</body>
+</html>
+
+
+
